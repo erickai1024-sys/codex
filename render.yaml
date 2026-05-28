@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: line-investment-assistant
+    env: ruby
+    plan: free
+    buildCommand: bundle install
+    startCommand: bundle exec rackup config.ru -p $PORT -o 0.0.0.0
+    envVars:
+      - key: LINE_CHANNEL_ACCESS_TOKEN
+        sync: false
+      - key: LINE_CHANNEL_SECRET
+        sync: false
+      - key: LINE_OWNER_USER_ID
+        sync: false
+      - key: LINE_TARGET_GROUP_ID
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4.1
